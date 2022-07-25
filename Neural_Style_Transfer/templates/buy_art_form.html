@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Art</title>
+</head>
+<body>
+
+    {% if art_file %}
+    <div>                
+        <img src="{{ url_for('static', filename = art_file) }}" width="250" height="300">
+
+    {% endif %}    
+
+    <h2>Please enter following deteils</h2>
+
+    <form action="#">
+        <label for="">Name</label>
+        <input type="text" required>
+
+        <br> <br>
+
+        <label for="">Email</label>
+        <input type="email" required>
+
+        <br> <br>
+
+        <label for="">Contact number</label>
+        <input type="text" >
+
+        <br> <br>
+
+        <label for="">Frame size</label>
+        <input type="text" required>
+
+        <br> <br>
+
+        <p>Choose frame type</p>
+
+        <input type="radio" name="fav_language" value="Box Frame">
+        <label for="Box Frame">Box Frame</label><br>
+
+        <input type="radio" name="fav_language" value="Metal Frame">
+        <label for="Metal Frame">Metal Frame</label><br>
+
+        <input type="radio" name="fav_language" value="Wood Frame">
+        <label for="Wood Frame">Wood Frame</label><br>
+
+        <input type="radio" name="fav_language" value="Plastic Frame">
+        <label for="Plastic Frame">Plastic Frame</label><br>
+            
+        
+        <input type="radio" name="fav_language" value="Glass Frame">
+        <label for="Glass Frame">Glass Frame</label>
+
+        <br><br>
+            
+
+        <label for="">Shipping address</label>
+        <input type="text">
+
+        <p><b>TODO:</b> Payment</p>
+
+        <input type="submit" value="Submit Details">
+
+            
+
+    </form>
+    
+</body>
+</html>

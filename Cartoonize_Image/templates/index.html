@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Main Page</title>
+</head>
+<body>
+    <!--  <h1>This is home page</h1>    -->
+
+    <h2>Select a file to upload</h2>
+
+
+
+    <!-- When we make a POST request, we have to encode the data
+         that forms the body of the request in some way. -->
+
+    <form method="post" action="/submit" enctype="multipart/form-data">
+        <dl>
+            <p>               
+                <input type="file" name="img" accept="image/png, image/jpg, image/jpeg" />
+            </p>
+        </dl>
+
+        <p>
+            <input type="submit" value="Generate Cartoonized Image" class="btn btn-info">
+        </p>
+    </form>
+
+
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+
+    {% if filename %}
+        <div >
+            <img src="{{ url_for('static', filename = filename) }}" width="250" height="300">
+        </div>
+    {% endif %} 
+        
+    <!-- ----------------------------------- -->
+    {% if art_file %}
+    <div class="cartoon-img">                 
+        <img src="{{ url_for('static', filename = art_file) }}" width="250" height="300">
+    {% endif %}
+
+
+
+    {% if art_file %}
+
+                                    <!-- For download button -->
+            
+    <form action="/download" method="get">
+
+    <p>
+        <input type="submit" value="Download Art" id="download">
+    </p>
+
+
+    </form>
+
+                                <!-- For share art button -->
+
+    <form action="/share">
+
+    <p>
+        <input type="submit" value="Share Art" id="share"> 
+    </p>
+
+    </form>
+
+
+
+                                <!-- For buy/print art button -->
+
+    <form action="/buy">
+
+    <p>
+        <input type="submit" value="Buy Art" id="buy">
+    </p>
+
+    </form>
+    
+
+    {% endif %}   
+
+    
+    <!-- ------------------------ -->
+    
+
+</body>
+
+</html>
+

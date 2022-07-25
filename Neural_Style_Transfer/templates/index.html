@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Main Page</title>
+</head>
+<body>
+    <!-- <h1>This is home page</h1>
+
+    <form action="/submit", method="post" enctype="multipart/form-data">
+        <label for="name">Name</label> <br>
+        <input type="text" name="username", id="username"> <br>
+
+        <label for="email">Email</label> <br>
+        <input type="email" name="email" id="email"> <br> <br> -->
+
+        <!-- <input type="image" src="/home/shahrayar/Desktop/Flask_Practice/base.jpeg" alt="Some Random Image"> <br> -->
+
+        <!-- <label for="math">Math Marks</label> <br>
+        <input type="text" name="math", id="math"> <br>
+
+        <label for="comp">Computer Marks</label> <br>
+        <input type="text" name="comp" id="comp"> <br> <br> -->
+<!--          
+        <input type="file" name="img" id="img"> <br> <br>
+
+        
+        <input type="submit" value="Submit">
+
+
+    </form>
+
+
+    <div class="container">
+
+        <div class="row">
+
+        </div>
+
+    </div> -->
+
+    <!-- ----------------------- -->
+
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div >
+            <img src="{{ url_for('static', filename = filename) }}" width="250" height="300">
+        </div>
+    {% endif %} 
+        
+    <!-- ----------------------------------- -->
+    {% if art_file %}
+    <div class="cartoon-img">                 
+        <img src="{{ url_for('static', filename = art_file) }}" width="250" height="300">
+    {% endif %}
+    <!-- ------------------------------------ -->
+    
+            <!-- ----------------------- -->
+
+
+            <!-- {% with name="World" %}     
+            
+                <div>Name of file is: {{filename}}!</div>
+            
+            {% endwith %} -->
+
+            <!-- ------------------------ -->
+
+            
+
+            
+
+
+
+    <form method="post" action="/submit" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <label>Upload Content Image </label> <br>
+                <input type="file" name="content_img" value="Upload Content Image" class="form-control" autocomplete="off" required>
+            </p>
+            
+        </dl>
+
+        <dl>
+            <p>
+                <label>Upload Style Image </label> <br>
+                <input type="file" name="style_img" value="Upload Style Image" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+
+        <p>
+            <input type="submit" value="Generate NST Art" class="btn btn-info">
+        </p>
+    </form>
+
+    
+        
+
+
+    {% if art_file %}
+
+                                    <!-- For download button -->
+            
+    <form action="/download" method="get">
+
+    <p>
+        <input type="submit" value="Download Art" id="download">
+    </p>
+
+
+    </form>
+
+                                <!-- For share art button -->
+
+    <form action="/share">
+
+    <p>
+        <input type="submit" value="Share Art" id="share"> 
+    </p>
+
+    </form>
+
+
+
+                                <!-- For buy/print art button -->
+
+    <form action="/buy">
+
+    <p>
+        <input type="submit" value="Buy Art" id="buy">
+    </p>
+
+    </form>
+    
+
+    {% endif %}   
+
+    
+    <!-- ------------------------ -->
+    
+
+</body>
+
+</html>
+
