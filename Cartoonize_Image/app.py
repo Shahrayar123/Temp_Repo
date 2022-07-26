@@ -49,14 +49,6 @@ def uniqueImgName(imgName, isGenerated:bool):
         return ImgName_unique
 
 
-# def ndarray_to_b64(ndarray):
-#     """
-#     converts a np ndarray to a b64 string readable by html-img tags 
-#     """
-#     img = cv2.cvtColor(ndarray, cv2.COLOR_RGB2BGR)
-#     _, buffer = cv2.imencode('.png', img)
-#     return base64.b64encode(buffer).decode('utf-8')        
-
 
 @app.route('/')
 def home():    
@@ -170,7 +162,7 @@ def download_art():
 @app.route('/share')
 def share_art():
     """
-    Display social media platform (facebook, gmail, twitter) link to
+    Display social media platform (facebook, twitter) link to
     share generated art on it
     """    
     pass

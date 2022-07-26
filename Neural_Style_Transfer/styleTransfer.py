@@ -54,7 +54,7 @@ def preprocess(img_path, max_size = 224):
   ])
 
   image = img_transforms(image)
-
+ 
   # now unsquuezing dimension at axis 0, bcz we are going to
   # ... add batch size, bcz model input are in shape
   # .... (batch_size, channel, height, width)
